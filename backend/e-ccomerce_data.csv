@@ -1,0 +1,21 @@
+CustomerID,Churn,Tenure,PreferredLoginDevice,CityTier,WarehouseToHome,PreferredPaymentMode,Gender,HourSpendOnApp,NumberOfDeviceRegistered,PreferedOrderCat,SatisfactionScore,MaritalStatus,NumberOfAddress,Complain,OrderAmountHikeFromlastYear,CouponUsed,OrderCount,DaySinceLastOrder,CashbackAmount
+1,0,12.0,Mobile Phone,2,15.2,Debit Card,Male,3.5,2,Laptop & Accessory,4,Married,1,0,15.5,2.5,5.0,7.5,100
+2,1,8.0,Computer,1,8.3,Credit Card,Female,2.1,1,Mobile Phone,2,Single,2,1,25.0,1.0,3.0,15.2,50
+3,0,24.0,Mobile Phone,3,22.1,E wallet,Male,4.2,3,Fashion,5,Married,1,0,5.0,4.0,8.0,3.0,200
+4,0,18.0,Phone,2,12.5,UPI,Female,2.8,2,Grocery,3,Divorced,1,0,10.0,3.0,6.0,5.0,150
+5,1,6.0,Computer,1,5.8,COD,Male,1.5,1,Mobile,1,Single,3,1,30.0,0.5,2.0,20.0,25
+6,0,36.0,Mobile Phone,2,18.7,Debit Card,Female,5.0,4,Laptop & Accessory,5,Married,1,0,8.0,5.0,12.0,2.0,300
+7,0,15.0,Phone,3,25.3,Credit Card,Male,3.2,2,Fashion,4,Married,2,0,12.0,2.0,7.0,8.0,120
+8,1,4.0,Computer,1,3.2,Cash on Delivery,Female,1.0,1,Others,1,Single,1,1,40.0,0.0,1.0,25.0,10
+9,0,30.0,Mobile Phone,2,16.8,E wallet,Male,4.5,3,Mobile Phone,4,Married,1,0,6.0,4.5,10.0,4.0,250
+10,0,21.0,Phone,2,14.1,UPI,Female,3.8,2,Grocery,4,Divorced,1,0,9.0,3.5,8.0,6.0,180
+11,1,9.0,Computer,1,7.5,Debit Card,Male,2.3,1,Fashion,2,Single,2,1,28.0,1.5,4.0,18.0,75
+12,0,42.0,Mobile Phone,3,28.9,Credit Card,Female,5.5,4,Laptop & Accessory,5,Married,1,0,4.0,6.0,15.0,1.0,400
+13,0,27.0,Phone,2,19.2,E wallet,Male,4.0,3,Mobile,4,Married,2,0,7.0,4.0,9.0,5.0,220
+14,1,7.0,Computer,1,4.6,COD,Female,1.8,1,Others,1,Divorced,1,1,35.0,0.8,2.5,22.0,30
+15,0,33.0,Mobile Phone,2,17.4,Debit Card,Male,4.8,3,Fashion,5,Married,1,0,5.5,5.5,11.0,3.0,280
+16,0,19.0,Phone,2,13.7,UPI,Female,3.5,2,Grocery,3,Married,1,0,11.0,3.0,7.0,7.0,160
+17,1,5.0,Computer,1,6.1,Credit Card,Male,1.2,1,Mobile Phone,1,Single,2,1,32.0,0.3,1.5,24.0,20
+18,0,39.0,Mobile Phone,3,26.5,E wallet,Female,5.2,4,Laptop & Accessory,5,Married,1,0,3.0,6.5,14.0,2.0,350
+19,0,25.0,Phone,2,15.9,Debit Card,Male,3.9,2,Mobile,4,Married,2,0,8.0,4.2,8.0,6.0,200
+20,0,31.0,Mobile Phone,2,20.3,UPI,Female,4.3,3,Fashion,4,Divorced,1,0,6.5,4.8,10.0,4.0,240

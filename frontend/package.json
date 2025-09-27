@@ -1,0 +1,23 @@
+{
+  "name": "customer-churn-prediction-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for Customer Churn Prediction System",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 3000",
+    "build": "echo 'Static site - no build needed'",
+    "start": "python3 -m http.server 3000"
+  },
+  "keywords": [
+    "machine-learning",
+    "churn-prediction",
+    "frontend",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}

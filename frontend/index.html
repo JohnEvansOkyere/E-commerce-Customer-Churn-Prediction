@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Churn Prediction</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-chart-line"></i> Customer Churn Prediction</h1>
+            <p>Predict customer churn using machine learning</p>
+        </header>
+
+        <div class="main-content">
+            <div class="form-section">
+                <h2><i class="fas fa-user-edit"></i> Customer Information</h2>
+                <form id="churnForm" class="churn-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tenure">Tenure (months)</label>
+                            <input type="number" id="tenure" name="tenure" step="0.1" placeholder="e.g., 12.5">
+                        </div>
+                        <div class="form-group">
+                            <label for="preferred_login_device">Preferred Login Device</label>
+                            <select id="preferred_login_device" name="preferred_login_device" required>
+                                <option value="">Select Device</option>
+                                <option value="Mobile Phone">Mobile Phone</option>
+                                <option value="Computer">Computer</option>
+                                <option value="Phone">Phone</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city_tier">City Tier</label>
+                            <select id="city_tier" name="city_tier" required>
+                                <option value="">Select Tier</option>
+                                <option value="1">Tier 1</option>
+                                <option value="2">Tier 2</option>
+                                <option value="3">Tier 3</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="warehouse_to_home">Warehouse to Home Distance</label>
+                            <input type="number" id="warehouse_to_home" name="warehouse_to_home" step="0.1" placeholder="e.g., 15.2">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="preferred_payment_mode">Preferred Payment Mode</label>
+                            <select id="preferred_payment_mode" name="preferred_payment_mode" required>
+                                <option value="">Select Payment Mode</option>
+                                <option value="Debit Card">Debit Card</option>
+                                <option value="Credit Card">Credit Card</option>
+                                <option value="E wallet">E wallet</option>
+                                <option value="UPI">UPI</option>
+                                <option value="COD">COD</option>
+                                <option value="CC">CC</option>
+                                <option value="Cash on Delivery">Cash on Delivery</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" name="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="hour_spend_on_app">Hours Spent on App</label>
+                            <input type="number" id="hour_spend_on_app" name="hour_spend_on_app" step="0.1" placeholder="e.g., 3.5">
+                        </div>
+                        <div class="form-group">
+                            <label for="number_of_device_registered">Number of Devices Registered</label>
+                            <input type="number" id="number_of_device_registered" name="number_of_device_registered" required placeholder="e.g., 2">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="prefered_order_cat">Preferred Order Category</label>
+                            <select id="prefered_order_cat" name="prefered_order_cat" required>
+                                <option value="">Select Category</option>
+                                <option value="Laptop & Accessory">Laptop & Accessory</option>
+                                <option value="Mobile Phone">Mobile Phone</option>
+                                <option value="Fashion">Fashion</option>
+                                <option value="Mobile">Mobile</option>
+                                <option value="Grocery">Grocery</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="satisfaction_score">Satisfaction Score</label>
+                            <select id="satisfaction_score" name="satisfaction_score" required>
+                                <option value="">Select Score</option>
+                                <option value="1">1 - Very Dissatisfied</option>
+                                <option value="2">2 - Dissatisfied</option>
+                                <option value="3">3 - Neutral</option>
+                                <option value="4">4 - Satisfied</option>
+                                <option value="5">5 - Very Satisfied</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="marital_status">Marital Status</label>
+                            <select id="marital_status" name="marital_status" required>
+                                <option value="">Select Status</option>
+                                <option value="Married">Married</option>
+                                <option value="Single">Single</option>
+                                <option value="Divorced">Divorced</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="number_of_address">Number of Addresses</label>
+                            <input type="number" id="number_of_address" name="number_of_address" required placeholder="e.g., 1">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="complain">Complaint Status</label>
+                            <select id="complain" name="complain" required>
+                                <option value="">Select Status</option>
+                                <option value="0">No Complaint</option>
+                                <option value="1">Has Complaint</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="order_amount_hike_from_last_year">Order Amount Hike from Last Year (%)</label>
+                            <input type="number" id="order_amount_hike_from_last_year" name="order_amount_hike_from_last_year" step="0.1" placeholder="e.g., 15.5">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="coupon_used">Coupons Used</label>
+                            <input type="number" id="coupon_used" name="coupon_used" step="0.1" placeholder="e.g., 2.5">
+                        </div>
+                        <div class="form-group">
+                            <label for="order_count">Order Count</label>
+                            <input type="number" id="order_count" name="order_count" step="0.1" placeholder="e.g., 5.0">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="day_since_last_order">Days Since Last Order</label>
+                            <input type="number" id="day_since_last_order" name="day_since_last_order" step="0.1" placeholder="e.g., 7.5">
+                        </div>
+                        <div class="form-group">
+                            <label for="cashback_amount">Cashback Amount</label>
+                            <input type="number" id="cashback_amount" name="cashback_amount" required placeholder="e.g., 100">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-brain"></i> Predict Churn
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="clearForm()">
+                            <i class="fas fa-eraser"></i> Clear Form
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="result-section" id="resultSection" style="display: none;">
+                <h2><i class="fas fa-chart-pie"></i> Prediction Results</h2>
+                <div class="result-card" id="resultCard">
+                    <!-- Results will be displayed here -->
+                </div>
+            </div>
+        </div>
+
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Analyzing customer data...</p>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2024 Customer Churn Prediction System. Built with FastAPI and Machine Learning.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
