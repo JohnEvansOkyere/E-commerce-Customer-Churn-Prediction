@@ -1,0 +1,123 @@
+{
+  "report_timestamp": "2025-09-27T13:14:05.489459",
+  "monitoring_period": "50 predictions",
+  "performance_summary": {
+    "timestamp": "2025-09-27T13:14:05.489501",
+    "time_period_hours": 24,
+    "total_predictions": 50,
+    "avg_response_time": 1.182,
+    "avg_confidence": 0.776,
+    "churn_predictions": 10,
+    "no_churn_predictions": 40,
+    "churn_rate": 0.2,
+    "error_rate": 0.0,
+    "status": "degraded"
+  },
+  "recent_alerts": [
+    {
+      "type": "low_confidence",
+      "message": "Prediction confidence 0.641 below threshold 0.7",
+      "timestamp": "2025-09-27T13:14:05.482330",
+      "severity": "warning"
+    },
+    {
+      "type": "low_confidence",
+      "message": "Prediction confidence 0.649 below threshold 0.7",
+      "timestamp": "2025-09-27T13:14:05.482555",
+      "severity": "warning"
+    },
+    {
+      "type": "low_confidence",
+      "message": "Prediction confidence 0.613 below threshold 0.7",
+      "timestamp": "2025-09-27T13:14:05.483100",
+      "severity": "warning"
+    },
+    {
+      "type": "low_confidence",
+      "message": "Prediction confidence 0.630 below threshold 0.7",
+      "timestamp": "2025-09-27T13:14:05.483269",
+      "severity": "warning"
+    },
+    {
+      "type": "low_confidence",
+      "message": "Prediction confidence 0.670 below threshold 0.7",
+      "timestamp": "2025-09-27T13:14:05.483662",
+      "severity": "warning"
+    },
+    {
+      "type": "low_confidence",
+      "message": "Prediction confidence 0.645 below threshold 0.7",
+      "timestamp": "2025-09-27T13:14:05.483922",
+      "severity": "warning"
+    },
+    {
+      "type": "low_confidence",
+      "message": "Prediction confidence 0.662 below threshold 0.7",
+      "timestamp": "2025-09-27T13:14:05.484412",
+      "severity": "warning"
+    },
+    {
+      "type": "low_confidence",
+      "message": "Prediction confidence 0.667 below threshold 0.7",
+      "timestamp": "2025-09-27T13:14:05.484571",
+      "severity": "warning"
+    },
+    {
+      "type": "low_confidence",
+      "message": "Prediction confidence 0.607 below threshold 0.7",
+      "timestamp": "2025-09-27T13:14:05.485325",
+      "severity": "warning"
+    },
+    {
+      "type": "low_confidence",
+      "message": "Prediction confidence 0.656 below threshold 0.7",
+      "timestamp": "2025-09-27T13:14:05.485734",
+      "severity": "warning"
+    },
+    {
+      "type": "low_confidence",
+      "message": "Prediction confidence 0.649 below threshold 0.7",
+      "timestamp": "2025-09-27T13:14:05.486266",
+      "severity": "warning"
+    },
+    {
+      "type": "low_confidence",
+      "message": "Prediction confidence 0.611 below threshold 0.7",
+      "timestamp": "2025-09-27T13:14:05.486586",
+      "severity": "warning"
+    },
+    {
+      "type": "low_confidence",
+      "message": "Prediction confidence 0.634 below threshold 0.7",
+      "timestamp": "2025-09-27T13:14:05.488302",
+      "severity": "warning"
+    },
+    {
+      "type": "low_confidence",
+      "message": "Prediction confidence 0.700 below threshold 0.7",
+      "timestamp": "2025-09-27T13:14:05.488702",
+      "severity": "warning"
+    },
+    {
+      "type": "low_confidence",
+      "message": "Prediction confidence 0.606 below threshold 0.7",
+      "timestamp": "2025-09-27T13:14:05.488830",
+      "severity": "warning"
+    }
+  ],
+  "degradation_analysis": {
+    "timestamp": "2025-09-27T13:14:05.489543",
+    "degradation_detected": false,
+    "issues": [],
+    "recent_confidence": 0.779163130376537,
+    "older_confidence": 0.8234950092617697,
+    "recent_response_time": 1.2536525252341162,
+    "older_response_time": 1.2818384193459165
+  },
+  "recommendations": [
+    "Model performance is degraded - consider retraining",
+    "Average prediction confidence is low - review model quality",
+    "Response times are high - check system resources",
+    "High number of alerts - investigate system stability"
+  ]
+}

@@ -4,7 +4,9 @@
  */
 
 // API Configuration
-const API_BASE_URL = 'http://localhost:8000'; // Change this to your deployed backend URL
+const API_BASE_URL = "http://localhost:8000";  
+// or
+const API_BASE_URL = "https://e-commerce-customer-churn-prediction.onrender.com";
 
 // DOM Elements
 const form = document.getElementById('churnForm');

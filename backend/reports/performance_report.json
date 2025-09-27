@@ -1,0 +1,61 @@
+{
+  "report_timestamp": "2025-09-27T13:12:08.174294",
+  "model_path": "models/trained_model.pkl",
+  "metrics_history": [
+    {
+      "timestamp": "2025-09-27T13:12:07.461290",
+      "accuracy": 0.935,
+      "precision": 0.9372820512820513,
+      "recall": 0.935,
+      "f1_score": 0.9340163731084098,
+      "auc": 0.9900257400257401,
+      "confusion_matrix": [
+        [
+          124,
+          2
+        ],
+        [
+          11,
+          63
+        ]
+      ],
+      "classification_report": {
+        "0": {
+          "precision": 0.9185185185185185,
+          "recall": 0.9841269841269841,
+          "f1-score": 0.9501915708812261,
+          "support": 126.0
+        },
+        "1": {
+          "precision": 0.9692307692307692,
+          "recall": 0.8513513513513513,
+          "f1-score": 0.9064748201438849,
+          "support": 74.0
+        },
+        "accuracy": 0.935,
+        "macro avg": {
+          "precision": 0.9438746438746439,
+          "recall": 0.9177391677391677,
+          "f1-score": 0.9283331955125556,
+          "support": 200.0
+        },
+        "weighted avg": {
+          "precision": 0.9372820512820513,
+          "recall": 0.935,
+          "f1-score": 0.9340163731084098,
+          "support": 200.0
+        }
+      },
+      "performance_status": "\u2705 Performance within acceptable range"
+    }
+  ],
+  "performance_summary": {
+    "latest_accuracy": 0.935,
+    "latest_f1_score": 0.9340163731084098,
+    "performance_trend": "Insufficient data",
+    "overall_status": "\u2705 Performance within acceptable range"
+  },
+  "recommendations": [
+    "Model performance is satisfactory - continue monitoring"
+  ]
+}

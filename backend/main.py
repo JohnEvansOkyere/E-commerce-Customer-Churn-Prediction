@@ -13,6 +13,8 @@ from typing import Dict, Any
 
 from models.model import ChurnPredictor
 from schemas import CustomerData, PredictionResponse, ModelInfo, HealthResponse
+from monitoring import production_monitor
+from evaluation import ModelEvaluator
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -187,15 +189,24 @@ async def predict_churn(customer_data: CustomerData, model: ChurnPredictor = Dep
     Predict customer churn based on customer data.
     I designed this endpoint to handle customer churn predictions with proper validation.
     """
+    import time
+    start_time = time.time()
+    
     try:
         # Convert Pydantic model to dictionary
-        data_dict = customer_data.dict()
+        data_dict = customer_data.model_dump()
         
         # Make prediction
         prediction_result = model.predict(data_dict)
         
         # Add model info to response
         prediction_result["model_info"] = model_info
+        
+        # Calculate response time
+        response_time = time.time() - start_time
+        
+        # Log prediction for monitoring
+        production_monitor.log_prediction(data_dict, prediction_result, response_time)
         
         return PredictionResponse(**prediction_result)
     
@@ -243,6 +254,89 @@ async def retrain_model():
     
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Retraining failed: {str(e)}")
+
+@app.get("/monitoring/performance")
+async def get_performance_summary(hours: int = 24):
+    """
+    Get model performance summary for monitoring.
+    I created this endpoint to provide real-time performance insights.
+    """
+    try:
+        summary = production_monitor.get_performance_summary(hours)
+        return summary
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to get performance summary: {str(e)}")
+
+@app.get("/monitoring/alerts")
+async def get_recent_alerts(hours: int = 24):
+    """
+    Get recent monitoring alerts.
+    I implemented this to track system issues and performance problems.
+    """
+    try:
+        alerts = production_monitor.get_recent_alerts(hours)
+        return {
+            "alerts": alerts,
+            "count": len(alerts),
+            "time_period_hours": hours
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to get alerts: {str(e)}")
+
+@app.get("/monitoring/degradation")
+async def check_performance_degradation():
+    """
+    Check for performance degradation.
+    I created this endpoint to detect when model performance is declining.
+    """
+    try:
+        degradation_analysis = production_monitor.detect_performance_degradation()
+        return degradation_analysis
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to check degradation: {str(e)}")
+
+@app.get("/monitoring/report")
+async def generate_monitoring_report():
+    """
+    Generate comprehensive monitoring report.
+    I designed this endpoint to provide detailed system insights.
+    """
+    try:
+        report = production_monitor.generate_monitoring_report()
+        return report
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to generate report: {str(e)}")
+
+@app.post("/monitoring/simulate")
+async def simulate_production_data(num_samples: int = 100):
+    """
+    Simulate production data for testing monitoring system.
+    I added this endpoint to test the monitoring capabilities.
+    """
+    try:
+        simulated_data = production_monitor.simulate_production_data(num_samples)
+        return {
+            "message": f"Simulated {len(simulated_data)} production predictions",
+            "samples": len(simulated_data)
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to simulate data: {str(e)}")
+
+@app.get("/evaluation/run")
+async def run_model_evaluation():
+    """
+    Run comprehensive model evaluation.
+    I created this endpoint to assess model performance and detect issues.
+    """
+    try:
+        evaluator = ModelEvaluator()
+        results = evaluator.evaluate_model(
+            pd.read_csv("e-ccomerce_data.csv").drop(columns=["CustomerID", "Churn"]),
+            pd.read_csv("e-ccomerce_data.csv")["Churn"]
+        )
+        return results
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Evaluation failed: {str(e)}")
 
 if __name__ == "__main__":
     import uvicorn
