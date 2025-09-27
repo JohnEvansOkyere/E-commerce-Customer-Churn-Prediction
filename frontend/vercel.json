@@ -1,5 +1,7 @@
 {
   "version": 2,
+  "public": true,
+  "root": "frontend",
   "builds": [
     { "src": "index.html", "use": "@vercel/static" },
     { "src": "styles.css", "use": "@vercel/static" },
