@@ -8,20 +8,11 @@
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!.*\\.(css|js|png|jpg|jpeg|gif|svg|ico)).*)",
       "destination": "/frontend/$1"
     }
   ],
   "headers": [
-    {
-      "source": "/frontend/(.*)\\.css",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/css"
-        }
-      ]
-    },
     {
       "source": "/(.*)\\.css",
       "headers": [
