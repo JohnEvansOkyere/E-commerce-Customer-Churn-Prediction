@@ -65,6 +65,24 @@
     </style>
 </head>
 <body>
+
+        <header class="header">
+    <div class="nav-container">
+        <div>
+            <h1><i class="fas fa-chart-line"></i> Model Performance Monitoring</h1>
+            <p>Real-time monitoring of your ML model in production</p>
+        </div>
+        <div class="nav-buttons">
+            <button class="nav-btn secondary" onclick="goBackToMain()">
+                <i class="fas fa-arrow-left"></i> Back to Prediction
+            </button>
+            <button class="refresh-btn" onclick="refreshDashboard()">
+                <i class="fas fa-sync-alt"></i> Refresh Dashboard
+            </button>
+        </div>
+    </div>
+</header>
+
     <div class="container">
         <header class="header">
             <h1><i class="fas fa-chart-line"></i> Model Performance Monitoring</h1>
@@ -427,6 +445,34 @@
         document.addEventListener('DOMContentLoaded', function() {
             refreshDashboard();
         });
+
+
+        // Navigation function back to main page
+        function goBackToMain() {
+            window.location.href = 'index.html';
+        }
+
+
+
+        async function refreshDashboard() {
+    showLoading();
+    try {
+        // Get performance summary
+        const perfResponse = await fetch(`${API_BASE_URL}/monitoring/performance`);
+        const perfData = await perfResponse.json();
+        
+        // Get alerts
+        const alertsResponse = await fetch(`${API_BASE_URL}/monitoring/alerts`);
+        const alertsData = await alertsResponse.json();
+        
+        // Update dashboard
+        updateDashboard(perfData, alertsData);
+    } catch (error) {
+        console.error('Error refreshing dashboard:', error);
+    } finally {
+        hideLoading();
+    }
+}
     </script>
 </body>
 </html>

@@ -355,3 +355,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Initialize the application when DOM is loaded
 document.addEventListener('DOMContentLoaded', initializeApp);
+
+
+
+// Navigation function to dashboard
+function goToDashboard() {
+    window.location.href = 'monitoring.html';
+}
+
+// Navigation function back to main page
+function goBackToMain() {
+    window.location.href = 'index.html';
+}
