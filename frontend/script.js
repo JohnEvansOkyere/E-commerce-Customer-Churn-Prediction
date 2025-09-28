@@ -4,9 +4,23 @@
  */
 
 // API Configuration
-const API_BASE_URL = "http://localhost:8000";  
-// or
-const API_BASE_URL = "https://e-commerce-customer-churn-prediction.onrender.com";
+// Smart API endpoint detection
+function getAPIBaseURL() {
+    // Check if running locally
+    const isLocal = window.location.hostname === 'localhost' || 
+                   window.location.hostname === '127.0.0.1' ||
+                   window.location.hostname.startsWith('192.168.');
+    
+    if (isLocal) {
+        console.log('🔧 Development mode: Using local API');
+        return "http://localhost:8000";
+    } else {
+        console.log(' Production mode: Using deployed API');
+        return "https://e-commerce-customer-churn-prediction.onrender.com";
+    }
+}
+
+const API_BASE_URL = getAPIBaseURL();
 
 // DOM Elements
 const form = document.getElementById('churnForm');
