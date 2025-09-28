@@ -1,26 +1,3 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "frontend/**",
-      "use": "@vercel/static"
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/((?!.*\\.(css|js|png|jpg|jpeg|gif|svg|ico)).*)",
-      "destination": "/frontend/$1"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)\\.css",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/css"
-        }
-      ]
-    }
-  ]
-}
+     "version": 2
+   }
